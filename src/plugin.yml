@@ -1,0 +1,22 @@
+name: MCRolePlay
+version: 0.3
+author: elc1798
+main: me.kunai.mcroleplay.MCRolePlay
+api-version: 1.16
+commands:
+  mcrp_augment_item:
+    description: Augments the held item with a new enchantment
+  mcrp_transmute_item:
+    description: Transmutes an item
+  mcrp_levelup_ranger:
+    description: Levels up ranger skills
+  mcrp_levelup_paladin:
+    description: Levels up paladin skills
+  mcrp_levelup_oceanmaster:
+    description: Levels up ocean master skills
+  mcrp_levelup_beastmaster:
+    description: Levels up beast master skills
+  mcrp_levelup_artificer:
+    description: Levels up artificer skills
+  mcrp_levelup_berserker:
+    description: Levels up berserker skills
