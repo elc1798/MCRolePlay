@@ -5,11 +5,10 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class ArtificerClass extends BasePlayerClass {
-
+public class BeastMasterClass extends BasePlayerClass {
     @Override
     public PlayerClass getPlayerClass() {
-        return PlayerClass.Artificer;
+        return PlayerClass.Beastmaster;
     }
 
     @Override
@@ -23,13 +22,13 @@ public class ArtificerClass extends BasePlayerClass {
                 player.getInventory().setBoots(new ItemStack(Material.LEATHER_BOOTS));
 
                 player.getInventory().addItem(
-                        new ItemStack(Material.IRON_PICKAXE),
-                        new ItemStack(Material.IRON_AXE),
-                        new ItemStack(Material.STONE_SHOVEL),
-                        new ItemStack(Material.STONE_HOE),
+                        new ItemStack(Material.WOLF_SPAWN_EGG, 1),
+                        new ItemStack(Material.BONE, 64),
                         new ItemStack(Material.STONE_SWORD),
-                        new ItemStack(Material.GRINDSTONE),
-                        new ItemStack(Material.CRAFTING_TABLE)
+                        new ItemStack(Material.STONE_PICKAXE),
+                        new ItemStack(Material.STONE_AXE),
+                        new ItemStack(Material.STONE_SHOVEL),
+                        new ItemStack(Material.STONE_HOE)
                 );
             default:
         }

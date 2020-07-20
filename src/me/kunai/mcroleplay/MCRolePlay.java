@@ -1,10 +1,10 @@
 package me.kunai.mcroleplay;
 
+import me.kunai.mcroleplay.playerclasses.*;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,9 +35,16 @@ public class MCRolePlay extends JavaPlugin {
             return handleAugmentItem(sender.getServer().getPlayer(sender.getName()));
         } else if (command.getName().equalsIgnoreCase("mcrp_transmute_item")) {
             return handleTransmuteItem(sender.getServer().getPlayer(sender.getName()));
-        } else if (command.getName().startsWith("mcrp_levelup_")) {
-            String classToLevel = command.getName().substring("mcrp_levelup_".length());
-            return handleLevelUp(sender.getServer().getPlayer(sender.getName()), classToLevel);
+        } else if (command.getName().equalsIgnoreCase("mcrp_levelup")) {
+            if (args.length != 1) {
+                sender.sendMessage("You must specify a class to level!");
+                return true;
+            }
+            return handleLevelUp(sender.getServer().getPlayer(sender.getName()), args[0]);
+        } else if (command.getName().equalsIgnoreCase("mcrp_grant_level")) {
+            return handleGrantLevel(sender, args);
+        } else if (command.getName().equalsIgnoreCase("mcrp_show_level_data")) {
+            return handleShowLevelData(sender);
         }
         return false;
     }
@@ -68,16 +75,10 @@ public class MCRolePlay extends JavaPlugin {
             }
 
             boolean costSatisfied = false;
-            for (ItemStack playerItem : player.getInventory()) {
-                if (playerItem == null) {
-                    continue;
-                }
-
-                if (playerItem.getType().equals(cost)) {
-                    playerItem.setAmount(playerItem.getAmount() - 1);
-                    costSatisfied = true;
-                    break;
-                }
+            for (ItemStack stack : player.getInventory().all(cost).values()) {
+                stack.setAmount(stack.getAmount() - 1);
+                costSatisfied = true;
+                break;
             }
 
             if (!costSatisfied) {
@@ -114,16 +115,10 @@ public class MCRolePlay extends JavaPlugin {
             if (artificerRank == 0) {
                 // Check for cost
                 boolean costSatisfied = false;
-                for (ItemStack playerItem : player.getInventory()) {
-                    if (playerItem == null) {
-                        continue;
-                    }
-
-                    if (playerItem.getType().equals(Material.IRON_INGOT)) {
-                        playerItem.setAmount(playerItem.getAmount() - 1);
-                        costSatisfied = true;
-                        break;
-                    }
+                for (ItemStack stack : player.getInventory().all(Material.IRON_INGOT).values()) {
+                    stack.setAmount(stack.getAmount() - 1);
+                    costSatisfied = true;
+                    break;
                 }
 
                 if (!costSatisfied) {
@@ -142,25 +137,25 @@ public class MCRolePlay extends JavaPlugin {
     }
 
     private boolean handleLevelUp(Player player, String classToLevel) {
-        PlayerClass pClass = PlayerClass.Artificer;
+        BasePlayerClass bpClass;
         switch (classToLevel) {
             case "ranger":
-                pClass = PlayerClass.Ranger;
+                bpClass = new RangerClass();
                 break;
             case "paladin":
-                pClass = PlayerClass.Paladin;
+                bpClass = new PaladinClass();
                 break;
             case "oceanmaster":
-                pClass = PlayerClass.Oceanmaster;
+                bpClass = new OceanMasterClass();
                 break;
             case "beastmaster":
-                pClass = PlayerClass.Beastmaster;
+                bpClass = new BeastMasterClass();
                 break;
             case "artificer":
-                pClass = PlayerClass.Artificer;
+                bpClass = new ArtificerClass();
                 break;
             case "berserker":
-                pClass = PlayerClass.Berserker;
+                bpClass = new BerserkerClass();
                 break;
             default:
                 player.sendMessage("Invalid command: Not a valid class to level.");
@@ -177,12 +172,52 @@ public class MCRolePlay extends JavaPlugin {
             player.sendMessage("You do not have any skill points to level with!");
             return true;
         }
-        int newLevel = dbManager.levelUp(playerName, pClass);
+        int newLevel = dbManager.levelUp(playerName, bpClass.getPlayerClass());
         if (newLevel <= 0) {
             player.sendMessage("INTERNAL ERROR: Failed to level up.");
             return true;
         }
-        player.sendMessage(String.format("You have levelled up your %s class to level %d!", pClass.name(), newLevel));
+        bpClass.triggerLevel(player, newLevel);
+        player.sendMessage(String.format("You have levelled up your %s class to level %d!", bpClass.getPlayerClass().name(), newLevel));
+        dbManager.incrementSkillPoints(playerName, -1);
+
+        return true;
+    }
+
+    private boolean handleGrantLevel(CommandSender sender, String[] playerNames) {
+        if (!sender.isOp()) {
+            sender.sendMessage("Only ops can grant levels!");
+            return true;
+        }
+
+        for (String name : playerNames) {
+            Player player = sender.getServer().getPlayer(name);
+            if (player == null || !player.isValid() || !player.isOnline() || !player.isWhitelisted()) {
+                sender.sendMessage(String.format("Player %s does not exist on the server", name));
+                continue;
+            }
+
+            boolean success = dbManager.incrementSkillPoints(name, 1);
+            if (success) {
+                sender.sendMessage(String.format("Player %s has been granted a skill point!", name));
+            } else {
+                sender.sendMessage("INTERNAL ERROR: Failed to grant skill point to " + name);
+            }
+        }
+        return true;
+    }
+
+    private boolean handleShowLevelData(CommandSender sender) {
+        sender.sendMessage(String.format("======= %s's level data =======", sender.getName()));
+
+        // Show available skill points:
+        int availSkilPts = dbManager.getAvailableSkillPoints(sender.getName());
+        sender.sendMessage(String.format("You have %d available skill points.", availSkilPts));
+
+        for (PlayerClass pClass : PlayerClass.values()) {
+            int currLevel = dbManager.getCurrentLevel(sender.getName(), pClass);
+            sender.sendMessage(String.format(" * %s: Level %d", pClass.name(), currLevel));
+        }
         return true;
     }
 }

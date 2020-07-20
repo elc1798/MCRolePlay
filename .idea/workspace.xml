@@ -24,58 +24,14 @@
       <file leaf-file-name="MCRolePlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/MCRolePlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="161" column="28" lean-forward="true" selection-start-line="146" selection-start-column="18" selection-end-line="161" selection-end-column="28" />
+            <state relative-caret-position="-1602">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#649#650#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasePlayerClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BasePlayerClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RangerClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/RangerClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArtificerClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/ArtificerClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Weightings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/Weightings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1908">
-              <caret line="106" column="68" lean-forward="true" selection-start-line="106" selection-start-column="68" selection-end-line="106" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+                <element signature="e#683#684#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,8 +40,8 @@
       <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="198">
+              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -114,13 +70,18 @@
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/MCPoECrafts.java" />
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/PlayerClasses.java" />
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/PlayerClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/Weightings.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/Crafting.java" />
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/DBManager.java" />
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BasePlayerClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/ArtificerClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BeastMasterClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BerserkerClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/OceanMasterClass.java" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/PaladinClass.java" />
         <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/RangerClass.java" />
-        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/Weightings.java" />
-        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/MCRolePlay.java" />
-        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/Crafting.java" />
         <option value="$PROJECT_DIR$/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/me/kunai/mcroleplay/MCRolePlay.java" />
       </list>
     </option>
   </component>
@@ -220,7 +181,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sqlite-jdbc-3.30.1.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
@@ -449,7 +410,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -485,7 +446,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -503,44 +466,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1844">
-          <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BasePlayerClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/RangerClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/ArtificerClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/Crafting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="19" column="109" lean-forward="false" selection-start-line="19" selection-start-column="109" selection-end-line="19" selection-end-column="109" />
+        <state relative-caret-position="18">
+          <caret line="21" column="114" lean-forward="true" selection-start-line="21" selection-start-column="114" selection-end-line="21" selection-end-column="114" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -549,7 +476,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/Weightings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1908">
+        <state relative-caret-position="1835">
           <caret line="106" column="68" lean-forward="true" selection-start-line="106" selection-start-column="68" selection-end-line="106" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -557,24 +484,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/MCRolePlay.java">
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/Crafting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="161" column="28" lean-forward="true" selection-start-line="146" selection-start-column="18" selection-end-line="161" selection-end-column="28" />
+        <state relative-caret-position="143">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BasePlayerClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/ArtificerClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="59" lean-forward="true" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BeastMasterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/BerserkerClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/OceanMasterClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/PaladinClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="58" lean-forward="false" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/playerclasses/RangerClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/kunai/mcroleplay/MCRolePlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1602">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="198">
+          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>

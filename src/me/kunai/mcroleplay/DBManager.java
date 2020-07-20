@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 class DBManager {
 
@@ -15,7 +17,7 @@ class DBManager {
     private static final String DB_DIR = "plugins/MCRolePlaying";
     private static final String CREATE_TABLE_FORMAT = "CREATE TABLE IF NOT EXISTS %s (%s)";
     private static final String LEVEL_TABLE_NAME = "ClassLevels";
-    private static final String LEVEL_TABLE_SCHEMA = "player TEXT PRIMARY KEY NOT NULL, class TEXT NOT NULL, value INT NOT NULL";
+    private static final String LEVEL_TABLE_SCHEMA = "player TEXT NOT NULL, class TEXT NOT NULL, value INT NOT NULL";
     private static final String ALLOW_LEVEL_TABLE_NAME = "AllowLevel";
     private static final String ALLOW_LEVEL_TABLE_SCHEMA = "player TEXT PRIMARY KEY NOT NULL, times INT NOT NULL";
 
@@ -23,7 +25,6 @@ class DBManager {
         try {
             setupDirectories(DB_DIR);
             sqliteConn = DriverManager.getConnection(String.format(DB_LOCATION, DB_DIR));
-            sqliteConn.setAutoCommit(false);
             connected = true;
 
             setupTables();
@@ -45,21 +46,15 @@ class DBManager {
         return true;
     }
 
-    /**
-     * Marks a player as having an available levelup.
-     *
-     * @param playerName Player username
-     * @return True if successful, false otherwise
-     */
-    boolean enableLevelUp(String playerName) {
+    boolean incrementSkillPoints(String playerName, int delta) {
         if (!connected) {
             return false;
         }
 
         try {
             int availLevels = getAvailableSkillPoints(playerName);
-            String addLevel = "INSERT INTO %s (player, times) VALUES (%s, %d)";
-            return runSQLUpdate(String.format(addLevel, ALLOW_LEVEL_TABLE_NAME, playerName, availLevels+1));
+            String addLevel = "REPLACE INTO %s (player, times) VALUES ('%s', %d)";
+            return runSQLUpdate(String.format(addLevel, ALLOW_LEVEL_TABLE_NAME, playerName, Math.max(0, availLevels+delta)));
         } catch (Exception e) {
             return false;
         }
@@ -73,13 +68,12 @@ class DBManager {
         try {
             // Yes I know there is a possible SQL injection via malicious playnames. Do I care? No. Use a server whitelist.
             String checkCurrent = "SELECT times FROM %s WHERE player='%s'";
-            ResultSet rs = runSQLQuery(String.format(checkCurrent, ALLOW_LEVEL_TABLE_NAME, playerName));
+            List<Object> fields = runSQLQuery(String.format(checkCurrent, ALLOW_LEVEL_TABLE_NAME, playerName), new String[]{"times"});
 
             int availLevels = 0;
-            if (rs.next()) {
-                availLevels = rs.getInt("times");
+            if (fields.size() == 1) {
+                availLevels = ((Integer) fields.get(0)).intValue();
             }
-            rs.close();
 
             return availLevels;
         } catch (Exception e) {
@@ -102,7 +96,7 @@ class DBManager {
         try {
             int levels = getCurrentLevel(playerName, pClass);
 
-            String addLevel = "INSERT INTO %s (player, class value) VALUES (%s, %s, %d)";
+            String addLevel = "REPLACE INTO %s (player, class, value) VALUES ('%s', '%s', %d)";
             if (!runSQLUpdate(String.format(addLevel, LEVEL_TABLE_NAME, playerName, pClass.name(), levels+1))) {
                 return -1;
             }
@@ -119,13 +113,12 @@ class DBManager {
 
         try {
             String checkCurrent = "SELECT value FROM %s WHERE player='%s' AND class='%s'";
-            ResultSet rs = runSQLQuery(String.format(checkCurrent, LEVEL_TABLE_NAME, playerName, pClass.name()));
+            List<Object> fields = runSQLQuery(String.format(checkCurrent, LEVEL_TABLE_NAME, playerName, pClass.name()), new String[]{"value"});
 
             int levels = 0;
-            if (rs.next()) {
-                levels  = rs.getInt("value");
+            if (fields.size() == 1) {
+                levels = ((Integer) fields.get(0)).intValue();
             }
-            rs.close();
 
             return levels;
         } catch (Exception e) {
@@ -165,7 +158,7 @@ class DBManager {
         }
     }
 
-    private ResultSet runSQLQuery(String s) {
+    private List<Object> runSQLQuery(String s, String[] fields) {
         if (!connected) {
             return null;
         }
@@ -173,8 +166,18 @@ class DBManager {
         try {
             Statement stmt = sqliteConn.createStatement();
             ResultSet rs = stmt.executeQuery(s);
+
+            ArrayList<Object> retVal = new ArrayList<>();
+
+            if (rs.next()) {
+                for (String field : fields) {
+                    retVal.add(rs.getObject(field));
+                }
+            }
+
+            rs.close();
             stmt.close();
-            return rs;
+            return retVal;
         } catch (Exception e) {
             return null;
         }

@@ -2,14 +2,15 @@ package me.kunai.mcroleplay.playerclasses;
 
 import me.kunai.mcroleplay.PlayerClass;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class ArtificerClass extends BasePlayerClass {
+public class OceanMasterClass extends BasePlayerClass {
 
     @Override
     public PlayerClass getPlayerClass() {
-        return PlayerClass.Artificer;
+        return PlayerClass.Oceanmaster;
     }
 
     @Override
@@ -22,16 +23,18 @@ public class ArtificerClass extends BasePlayerClass {
                 player.getInventory().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
                 player.getInventory().setBoots(new ItemStack(Material.LEATHER_BOOTS));
 
+                ItemStack trident = new ItemStack(Material.TRIDENT);
+                trident.addEnchantment(Enchantment.LOYALTY, 1);
+
                 player.getInventory().addItem(
-                        new ItemStack(Material.IRON_PICKAXE),
-                        new ItemStack(Material.IRON_AXE),
+                        trident,
+                        new ItemStack(Material.STONE_PICKAXE),
+                        new ItemStack(Material.STONE_AXE),
                         new ItemStack(Material.STONE_SHOVEL),
-                        new ItemStack(Material.STONE_HOE),
-                        new ItemStack(Material.STONE_SWORD),
-                        new ItemStack(Material.GRINDSTONE),
-                        new ItemStack(Material.CRAFTING_TABLE)
+                        new ItemStack(Material.STONE_HOE)
                 );
             default:
         }
     }
+
 }
