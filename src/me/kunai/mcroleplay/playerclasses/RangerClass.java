@@ -2,7 +2,6 @@ package me.kunai.mcroleplay.playerclasses;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-import me.kunai.mcroleplay.PlayerClass;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;

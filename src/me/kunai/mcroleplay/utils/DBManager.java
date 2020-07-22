@@ -1,4 +1,6 @@
-package me.kunai.mcroleplay;
+package me.kunai.mcroleplay.utils;
+
+import me.kunai.mcroleplay.playerclasses.PlayerClass;
 
 import java.io.File;
 import java.sql.Connection;
@@ -8,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-class DBManager {
+public class DBManager {
 
     private Connection sqliteConn;
     private boolean connected;
@@ -21,7 +23,7 @@ class DBManager {
     private static final String ALLOW_LEVEL_TABLE_NAME = "AllowLevel";
     private static final String ALLOW_LEVEL_TABLE_SCHEMA = "player TEXT PRIMARY KEY NOT NULL, times INT NOT NULL";
 
-    DBManager() {
+    public DBManager() {
         try {
             setupDirectories(DB_DIR);
             sqliteConn = DriverManager.getConnection(String.format(DB_LOCATION, DB_DIR));
@@ -33,7 +35,7 @@ class DBManager {
         }
     }
 
-    boolean disconnect() {
+    public boolean disconnect() {
         if (connected) {
             try {
                 sqliteConn.close();
@@ -46,7 +48,7 @@ class DBManager {
         return true;
     }
 
-    boolean incrementSkillPoints(String playerName, int delta) {
+    public boolean incrementSkillPoints(String playerName, int delta) {
         if (!connected) {
             return false;
         }
@@ -60,7 +62,7 @@ class DBManager {
         }
     }
 
-    int getAvailableSkillPoints(String playerName) {
+    public int getAvailableSkillPoints(String playerName) {
         if (!connected) {
             return -1;
         }
@@ -88,7 +90,7 @@ class DBManager {
      * @param pClass Class to Level
      * @return New level of that class. -1 indicates that the player was not successfully levelled.
      */
-    int levelUp(String playerName, PlayerClass pClass) {
+    public int levelUp(String playerName, PlayerClass pClass) {
         if (!connected) {
             return -1;
         }
@@ -106,7 +108,7 @@ class DBManager {
         }
     }
 
-    int getCurrentLevel(String playerName, PlayerClass pClass) {
+    public int getCurrentLevel(String playerName, PlayerClass pClass) {
         if (!connected) {
             return -1;
         }

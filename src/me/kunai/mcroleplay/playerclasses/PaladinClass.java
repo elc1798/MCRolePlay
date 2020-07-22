@@ -1,6 +1,5 @@
 package me.kunai.mcroleplay.playerclasses;
 
-import me.kunai.mcroleplay.PlayerClass;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;

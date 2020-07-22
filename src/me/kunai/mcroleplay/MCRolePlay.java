@@ -1,6 +1,7 @@
 package me.kunai.mcroleplay;
 
 import me.kunai.mcroleplay.playerclasses.*;
+import me.kunai.mcroleplay.utils.DBManager;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

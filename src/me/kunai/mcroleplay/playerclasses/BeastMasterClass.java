@@ -1,6 +1,5 @@
 package me.kunai.mcroleplay.playerclasses;
 
-import me.kunai.mcroleplay.PlayerClass;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package me.kunai.mcroleplay;
+package me.kunai.mcroleplay.playerclasses;
 
 public enum PlayerClass {
     Artificer,
