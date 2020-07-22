@@ -1,4 +1,4 @@
-package me.kunai.mcroleplay;
+package me.kunai.mcroleplay.crafting;
 
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -9,14 +9,14 @@ import java.util.Random;
 
 /** Handles Path of Exile style item crafting
  */
-class Crafting {
+public class Crafting {
 
-    static boolean augmentItem(ItemStack item ) {
+    public static boolean augmentItem(ItemStack item ) {
         Map<Enchantment, List<Integer>> weightMap = Weightings.getWeightMapFor(item, Weightings.getAllWeights());
         return rollEnchantment(item, weightMap);
     }
 
-    static boolean transmuteItem(ItemStack item, int artificerRank) {
+    public static boolean transmuteItem(ItemStack item, int artificerRank) {
         Map<Enchantment, List<Integer>> weightMap = Weightings.getWeightMapFor(item, Weightings.getTransmuteWeights(artificerRank));
         return rollEnchantment(item, weightMap);
     }

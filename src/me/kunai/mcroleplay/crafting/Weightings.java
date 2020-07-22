@@ -1,4 +1,4 @@
-package me.kunai.mcroleplay;
+package me.kunai.mcroleplay.crafting;
 
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;

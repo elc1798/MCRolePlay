@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import static me.kunai.mcroleplay.Crafting.augmentItem;
-import static me.kunai.mcroleplay.Crafting.transmuteItem;
+import static me.kunai.mcroleplay.crafting.Crafting.augmentItem;
+import static me.kunai.mcroleplay.crafting.Crafting.transmuteItem;
 
 public class MCRolePlay extends JavaPlugin {
 
