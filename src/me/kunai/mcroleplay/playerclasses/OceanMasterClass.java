@@ -6,27 +6,29 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import static me.kunai.mcroleplay.utils.ItemUtils.nameItem;
+
 public class OceanMasterClass extends BasePlayerClass {
 
-    @Override
-    public PlayerClass getPlayerClass() {
-        return PlayerClass.Oceanmaster;
+    public OceanMasterClass(Player player) {
+        super(player, PlayerClass.Oceanmaster);
     }
 
     @Override
-    public void triggerLevel(Player player, int level) {
+    public void triggerLevel(int level) {
         switch (level) {
             case 1:
                 // Give player starting gear
-                player.getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET));
-                player.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
-                player.getInventory().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
-                player.getInventory().setBoots(new ItemStack(Material.LEATHER_BOOTS));
+                super.getPlayer().getInventory().setHelmet(new ItemStack(Material.LEATHER_HELMET));
+                super.getPlayer().getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
+                super.getPlayer().getInventory().setLeggings(new ItemStack(Material.LEATHER_LEGGINGS));
+                super.getPlayer().getInventory().setBoots(new ItemStack(Material.LEATHER_BOOTS));
 
                 ItemStack trident = new ItemStack(Material.TRIDENT);
                 trident.addEnchantment(Enchantment.LOYALTY, 1);
+                nameItem(trident, "Oceanmaster's Might");
 
-                player.getInventory().addItem(
+                super.getPlayer().getInventory().addItem(
                         trident,
                         new ItemStack(Material.STONE_PICKAXE),
                         new ItemStack(Material.STONE_AXE),

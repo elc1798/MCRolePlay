@@ -140,22 +140,22 @@ public class MCRolePlay extends JavaPlugin {
         BasePlayerClass bpClass;
         switch (classToLevel) {
             case "ranger":
-                bpClass = new RangerClass();
+                bpClass = new RangerClass(player);
                 break;
             case "paladin":
-                bpClass = new PaladinClass();
+                bpClass = new PaladinClass(player);
                 break;
             case "oceanmaster":
-                bpClass = new OceanMasterClass();
+                bpClass = new OceanMasterClass(player);
                 break;
             case "beastmaster":
-                bpClass = new BeastMasterClass();
+                bpClass = new BeastMasterClass(player);
                 break;
             case "artificer":
-                bpClass = new ArtificerClass();
+                bpClass = new ArtificerClass(player);
                 break;
             case "berserker":
-                bpClass = new BerserkerClass();
+                bpClass = new BerserkerClass(player);
                 break;
             default:
                 player.sendMessage("Invalid command: Not a valid class to level.");
@@ -177,7 +177,7 @@ public class MCRolePlay extends JavaPlugin {
             player.sendMessage("INTERNAL ERROR: Failed to level up.");
             return true;
         }
-        bpClass.triggerLevel(player, newLevel);
+        bpClass.triggerLevel(newLevel);
         player.sendMessage(String.format("You have levelled up your %s class to level %d!", bpClass.getPlayerClass().name(), newLevel));
         dbManager.incrementSkillPoints(playerName, -1);
 

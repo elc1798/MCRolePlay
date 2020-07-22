@@ -5,7 +5,20 @@ import org.bukkit.entity.Player;
 
 public abstract class BasePlayerClass {
 
-    public abstract PlayerClass getPlayerClass();
-    public abstract void triggerLevel(Player player, int level);
+    private Player player;
+    private PlayerClass playerClass;
 
+    public BasePlayerClass(Player player, PlayerClass pClass) {
+        this.player = player;
+        this.playerClass = pClass;
+    }
+
+    public abstract void triggerLevel(int level);
+
+    public Player getPlayer() {
+        return this.player;
+    }
+    public PlayerClass getPlayerClass() {
+        return this.playerClass;
+    }
 }
