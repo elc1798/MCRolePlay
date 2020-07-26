@@ -21,12 +21,12 @@ public abstract class CommandHandler {
     }
 
     public final void handle(Player invoker, String[] args) {
-        if (opOnly && !invoker.isOp()) {
+        if (opOnly && invoker != null && !invoker.isOp()) {
             invoker.sendMessage(String.format("%s can only be used by ops.", getName()));
             return;
         }
 
-        if (getCost(invoker) != null && !invoker.getGameMode().equals(GameMode.CREATIVE)) {
+        if (invoker != null && getCost(invoker) != null && !invoker.getGameMode().equals(GameMode.CREATIVE)) {
             List<ItemStack> unsatisfiedCost = handleCost(invoker);
             if (unsatisfiedCost.size() > 0) {
                 invoker.sendMessage("The following materials are missing:");

@@ -1,5 +1,5 @@
 name: MCRolePlay
-version: 0.5
+version: 0.7
 author: elc1798
 main: me.kunai.mcroleplay.MCRolePlay
 api-version: 1.16
@@ -14,3 +14,7 @@ commands:
     description: Gives a player a skill point
   mcrp_show_level_data:
     description: Show the player their level data
+  mcrp_reload_world:
+    description: Reload the world. Optionally provide a relative path to a JSON file relative to plugins/MCRolePlaying
+  mcrp_game_state:
+    description: Handles commands that read and modify game state

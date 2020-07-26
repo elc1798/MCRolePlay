@@ -10,13 +10,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static me.kunai.mcroleplay.utils.Constants.PLUGIN_DIR;
+
 public class DBManager {
 
     private Connection sqliteConn;
     private boolean connected;
 
     private static final String DB_LOCATION = "jdbc:sqlite:%s/mcrp.db";
-    private static final String DB_DIR = "plugins/MCRolePlaying";
     private static final String CREATE_TABLE_FORMAT = "CREATE TABLE IF NOT EXISTS %s (%s)";
     private static final String LEVEL_TABLE_NAME = "ClassLevels";
     private static final String LEVEL_TABLE_SCHEMA = "player TEXT NOT NULL, class TEXT NOT NULL, value INT NOT NULL";
@@ -25,8 +26,8 @@ public class DBManager {
 
     public DBManager() {
         try {
-            setupDirectories(DB_DIR);
-            sqliteConn = DriverManager.getConnection(String.format(DB_LOCATION, DB_DIR));
+            setupDirectories(PLUGIN_DIR);
+            sqliteConn = DriverManager.getConnection(String.format(DB_LOCATION, PLUGIN_DIR));
             connected = true;
 
             setupTables();

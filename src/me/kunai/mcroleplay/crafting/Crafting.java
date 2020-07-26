@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class Crafting {
 
-    public static boolean augmentItem(ItemStack item ) {
+    public static boolean augmentItem(ItemStack item) {
         Map<Enchantment, List<Integer>> weightMap = Weightings.getWeightMapFor(item, Weightings.getAllWeights());
         return rollEnchantment(item, weightMap);
     }
